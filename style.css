@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'TTTtangsbudaejjigaeB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/TTTtangsbudaejjigaeB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+  
+
+@font-face {
+    font-family: 'TAEBAEKmilkyway';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/TAEBAEKmilkyway.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    background-image: url("../images/야경짤.gif");
+    background-size: cover;
+    font-family: 'TAEBAEKmilkyway';
+    font-size: 25px;
+    font-weight: 1000
+}
+
+h1{
+    font-family:'TTTtangsbudaejjigaeB';
+    font-weight: 400;
+    font-style: normal;
+    font-size: 80px;
+    color: aliceblue;
+    margin: 40px 10px 20px 10px;
+    text-align: center;
+}
+
+
+#container {
+    max-width: 500px;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    background-size: cover;
+    box-shadow: 0 0 20px 0 gray;
+    border-radius: 20px;
+    background-color: rgba(185, 225, 245, 0.9)
+}
+
+#phrase{
+    margin-top: 20px;
+}
+
+
+#user-input{
+    border-radius: 15px;
+    width: 400px;
+    height: 30px;
+    border-color: rgb(60, 144, 255);
+    margin-top: 20px;
+    
+}
+
+.main-img{
+    margin:20px;
+    margin-bottom: 20px;
+    width: 350px;
+    height: 250px;
+    border-radius: 20px;
+    
+}
+
+#play-button{
+    border-radius: 12px;
+    border-color: rgb(159, 176, 255);
+    width: 110px;
+    height: 50px;
+    background-color: whitesmoke;
+    font-size: 12px;
+    font-family: 'TTTtangsbudaejjigaeB';
+    margin: 15px;
+    
+}
+
+#play-button:hover{
+    background-color: rgb(198, 208, 255);
+}
+
+#reset-button{
+    border-radius: 12px;
+    width: 110px;
+    height: 50px;
+    border-color: rgb(159, 176, 255);
+    background-color: whitesmoke;
+    font-size: 12px;
+    font-family: 'TTTtangsbudaejjigaeB';
+    margin: 15px;
+}
+
+
+#reset-button:hover{
+    background-color: rgb(159, 176, 255);
+}

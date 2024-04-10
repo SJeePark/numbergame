@@ -8,20 +8,26 @@
 // 유저가 1~100 범위 밖의 숫자를 입력하면 알려준다. 기회를 깎지 않는다
 // 유저가 이미 입력한 숫자를 또 입력하면, 알려준다, 기회를 깎지 않는다.
 
+// 유저가 정답을 맞추면 정답 gif 삽입
+// 정답을 맞췄으면 게임 리셋
+// 못맞췄을 경우 정답과 함께 리셋 가능
+
 let computerNum = 0;
 let playButton = document.getElementById("play-button");
 let userInput = document.getElementById("user-input");
 let resultArea = document.getElementById("result-area");
-let resetButton = document.getElementById("reset-button")
-let chances = 5
+let resetButton = document.getElementById("reset-button");
+let chances = 5;
 let gameOver = false;
-let chanceArea = document.getElementById("chance-area")
-let history=[]
+let chanceArea = document.getElementById("chance-area");
+let history=[];
+let resultImg = document.querySelector(".main-img");
+
 
 playButton.addEventListener("click",play);
-resetButton.addEventListener("click", reset)
-userInput.addEventListener("focus", function() {
-    userInput.value='';
+resetButton.addEventListener("click",reset);
+userInput.addEventListener("focus",function(){
+    userInput.value="";
 });
 
 function pickRandomNum(){
@@ -38,12 +44,12 @@ function play(){
     }
 
     if(history.includes(userValue)){
-        resultArea.textContent="이미 입력한 숫자입니다. 다른 숫자를 입력해주세요"
+        resultArea.textContent="이미 입력했던 숫자야"
         return;
     }
 
     chances --;
-    chanceArea.textContent=`남은 기회: ${chances}번`;
+    chanceArea.textContent=`${chances}번 밖에 남지 않았어..!`;
     console.log("chances", chances);
 
     if(userValue < computerNum){
@@ -51,7 +57,10 @@ function play(){
     } else if(userValue > computerNum){
         resultArea.textContent = "Down!"
     } else {
-        resultArea.textContent = "맞췄습니다!!"
+        resultArea.textContent = "덕분에 모험을 시작할 수 있게 됐어!"
+        chanceArea.textContent = ' '
+        resultImg.src = "https://i.pinimg.com/originals/95/5c/31/955c316e93cec1ffad31903d433aa300.gif"
+        
     }
 
     history.push(userValue)
@@ -62,15 +71,22 @@ function play(){
     }
     if(gameOver==true){
         playButton.disabled = true;
+        chanceArea.textContent = '모험을 다시 시작해볼까?'
+        resultArea.textContent = `정답은 ${computerNum} 였엉ㅜ^ㅜ`;
+        resultImg.src = "https://i.pinimg.com/originals/6d/36/f5/6d36f5ecbbbe293ea9e9dbf49c270142.gif"
+        
     }
 }
 
 function reset(){
-    ///user input창이 깨끗하게 정리되고 
     userInput.value='';
-    // 새로운 번호가 생성되고
     pickRandomNum();
-
+    chances = 5;
+    history =[];
     resultArea.textContent="결과값이 여기 나옵니다";
+    chanceArea.textContent= "기회는 5번!";
+    gameOver = false
+    playButton.disabled = false;
+    resultImg.src = "https://i.pinimg.com/originals/f9/5e/fe/f95efe92c56e5f7266db0702a77e1b6e.gif"
 }
 pickRandomNum();
