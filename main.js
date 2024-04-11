@@ -13,7 +13,7 @@
 // 못맞췄을 경우 정답과 함께 리셋 가능
 
 let computerNum = 0;
-let playButton = document.getElementById("play-button");
+let playButton = document.getElementById("play-button")
 let userInput = document.getElementById("user-input");
 let resultArea = document.getElementById("result-area");
 let resetButton = document.getElementById("reset-button");
@@ -56,19 +56,25 @@ function play(){
         resultArea.textContent = "Up!"
     } else if(userValue > computerNum){
         resultArea.textContent = "Down!"
-    } else {
+    }else {
         resultArea.textContent = "덕분에 모험을 시작할 수 있게 됐어!"
         chanceArea.textContent = ' '
         resultImg.src = "https://i.pinimg.com/originals/95/5c/31/955c316e93cec1ffad31903d433aa300.gif"
         
     }
 
+
     history.push(userValue)
     console.log(history)
 
-    if(chances<1){
+    if(chances==0){
         gameOver=true
     }
+
+    if( chances==0 || userInput==computerNum){
+        gameOver=false     
+    }
+
     if(gameOver==true){
         playButton.disabled = true;
         chanceArea.textContent = '모험을 다시 시작해볼까?'
@@ -77,6 +83,7 @@ function play(){
         
     }
 }
+
 
 function reset(){
     userInput.value='';
