@@ -71,10 +71,6 @@ function play(){
         gameOver=true
     }
 
-    if( chances==0 || userInput==computerNum){
-        gameOver=false     
-    }
-
     if(gameOver==true){
         playButton.disabled = true;
         chanceArea.textContent = '모험을 다시 시작해볼까?'
